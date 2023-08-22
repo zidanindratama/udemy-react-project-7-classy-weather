@@ -2,6 +2,10 @@ import React from "react";
 import Day from "./Day";
 
 class Weather extends React.Component {
+  componentWillUnmount() {
+    console.log("Weather will unmount");
+  }
+
   render() {
     const {
       temperature_2m_max: max,
@@ -9,22 +13,21 @@ class Weather extends React.Component {
       time: dates,
       weathercode: codes,
     } = this.props.weather;
+
     return (
       <div>
         <h2>Weather {this.props.location}</h2>
         <ul className="weather">
-          {dates.map((date, i) => {
-            return (
-              <Day
-                date={date}
-                max={max.at(i)}
-                min={min.at(i)}
-                code={codes.at(i)}
-                key={date}
-                isToday={i === 0}
-              />
-            );
-          })}
+          {dates.map((date, i) => (
+            <Day
+              date={date}
+              max={max.at(i)}
+              min={min.at(i)}
+              code={codes.at(i)}
+              key={date}
+              isToday={i === 0}
+            />
+          ))}
         </ul>
       </div>
     );

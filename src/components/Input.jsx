@@ -2,15 +2,13 @@ import React from "react";
 
 class Input extends React.Component {
   render() {
-    const { location, onChangeLocation } = this.props;
-
     return (
       <div>
         <input
           type="text"
-          placeholder="Search for location..."
-          value={location}
-          onChange={onChangeLocation}
+          placeholder="Search from location..."
+          value={this.props.location}
+          onChange={this.props.onChangeLocation}
         />
       </div>
     );
