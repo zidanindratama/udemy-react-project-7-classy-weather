@@ -10,17 +10,12 @@ function convertToFlag(countryCode) {
 }
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      location: "Jakarta",
-      isLoading: false,
-      displayLocation: "",
-      weather: {},
-    };
-    this.fetchWeather = this.fetchWeather.bind(this);
-  }
+  state = {
+    location: "Jakarta",
+    isLoading: false,
+    displayLocation: "",
+    weather: {},
+  };
 
   fetchWeather = async () => {
     try {
